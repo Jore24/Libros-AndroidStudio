@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.ViewProducts">
+
+    <!-- Botón de retroceso -->
+    <ImageButton
+        android:id="@+id/btnAtras"
+        style="@android:style/Widget.DeviceDefault.ImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="20dp"
+        android:backgroundTint="#FFFFFF"
+        android:padding="20dp"
+        android:scaleType="fitCenter"
+        card_view:srcCompat="@drawable/atras"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- EditText para buscar productos por nombre -->
+
+    <!-- Botón de perfil -->
+
+    <EditText
+        android:id="@+id/editTextSearch"
+        android:layout_width="284dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/edittext_border"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="8dp"
+        android:hint="Buscar productos por nombre..."
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:padding="16dp"
+        android:textColorHint="#AAAAAA"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/btnAtras"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@id/btnAtras">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewProducts"
+                tools:listitem="@layout/item_libro"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="end"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/btnInsertar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/border_button"
+            android:padding="15dp"
+            android:scaleType="fitCenter"
+            app:cornerRadius="10dp"
+            app:srcCompat="@drawable/agregar" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
